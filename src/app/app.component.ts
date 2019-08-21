@@ -10,10 +10,14 @@ export class AppComponent {
   imageWidth = 100;
   display = true;
 
+  isHighlight = false;
+  fontSize = 30;
+
   list = ['A', 'B', 'C', 'D'];
 
   imageResize(event: MouseEvent) {
-
+    this.isHighlight = !this.isHighlight;
+    this.fontSize += 2;
     this.display = !this.display;
 
     // this.list.push('E');
