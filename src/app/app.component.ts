@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Article } from './article';
+import { HttpClient } from '@angular/common/http';
+import { HttpArticles } from './http-articles';
+import { ArticleApiService } from './article-api.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = '聯合大學';
   imageWidth = 100;
   display = true;
@@ -32,6 +35,21 @@ export class AppComponent {
     }
   ];
 
+  constructor(private httpClient: HttpClient, private articleApiService: ArticleApiService) {}
+
+  ngOnInit() {
+    // this.httpClient
+    //   .get<HttpArticles>('http://localhost:3000/api/articles')
+    //   .subscribe(data => {
+    //     console.log('1');
+    //     console.log(data);
+    //     this.articles = data.articles;
+    //   });
+
+    this.articleApiService.getArticles().subscribe(data => {
+      this.articles = data.articles;
+    });
+  }
 
   imageResize(event: MouseEvent) {
     this.isHighlight = !this.isHighlight;

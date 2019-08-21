@@ -11,6 +11,9 @@ import { ArticlesComponent } from './articles/articles.component';
 import { TagsComponent } from './tags/tags.component';
 import { NavComponent } from './nav/nav.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,8 @@ import { NavComponent } from './nav/nav.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
