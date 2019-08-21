@@ -9,6 +9,7 @@ import { MyLowerCasePipe } from './my-lower-case.pipe';
 import { BannerComponent } from './banner/banner.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { TagsComponent } from './tags/tags.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TagsComponent } from './tags/tags.component';
     MyLowerCasePipe,
     BannerComponent,
     ArticlesComponent,
-    TagsComponent
+    TagsComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

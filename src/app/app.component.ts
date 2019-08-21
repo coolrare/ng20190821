@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Article } from './article';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,21 @@ export class AppComponent {
   money = 10000;
 
   list = ['A', 'B', 'C', 'D'];
+
+  topTitle = 'Test';
+  bottomTitle = 'Test2';
+
+  articles: Article[] = [
+    {
+      title: 'Test 1',
+      description: 'test 1'
+    },
+    {
+      title: 'Test 2',
+      description: 'test2'
+    }
+  ];
+
 
   imageResize(event: MouseEvent) {
     this.isHighlight = !this.isHighlight;
@@ -39,8 +55,13 @@ export class AppComponent {
     }
   }
 
-  changeTitle(event) {
+  changeTitle(event: any) {
     console.log(event.target.value);
     this.title = event.target.value;
+  }
+
+  filterArticles(keyword: string) {
+    console.log(keyword);
+    this.articles = this.articles.filter(item => item.title.indexOf(keyword) !== -1);
   }
 }
