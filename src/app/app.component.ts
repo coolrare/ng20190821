@@ -13,6 +13,8 @@ export class AppComponent {
   isHighlight = false;
   fontSize = 30;
 
+  money = 10000;
+
   list = ['A', 'B', 'C', 'D'];
 
   imageResize(event: MouseEvent) {
