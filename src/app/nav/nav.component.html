@@ -3,7 +3,8 @@
     <a class="navbar-brand" routerLink="/">conduit</a>
     <!-- <a class="navbar-brand" [routerLink]="['/', keyword]">conduit</a> -->
 
-    <input [(ngModel)]="keyword">
+    <!-- <input [ngModel]="keyword" (ngModelChange)="keyword = $event"> -->
+    <input [(ngModel)]="keyword" >
     <button (click)="doSearch()">Search</button>
     <ul class="nav navbar-nav pull-xs-right">
       <li class="nav-item" routerLinkActive="highlight">

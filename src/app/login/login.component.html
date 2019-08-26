@@ -5,14 +5,32 @@
       <div class="col-md-6 col-md-offset-3 col-xs-12">
         <h1 class="text-xs-center">Sign in</h1>
 
-        <form>
+        <form #form="ngForm">
           <fieldset class="form-group">
-            <input name="email" class="form-control form-control-lg" type="text" placeholder="Email" [(ngModel)]="user.email">
+            <input name="email" class="form-control form-control-lg" type="text" placeholder="Email"
+              ngModel #email="ngModel" required email>
+            {{ email.errors | json  }}
+            <div *ngIf="email.invalid">
+              Email 不正確
+            </div>
           </fieldset>
           <fieldset class="form-group">
-            <input name="password" class="form-control form-control-lg" type="password" placeholder="Password" [(ngModel)]="user.password">
+            <input name="password" class="form-control form-control-lg" type="password" placeholder="Password"
+              ngModel #password="ngModel" required minlength="6">
+            {{ password.errors | json }}
+
+            <div *ngIf="password.invalid">
+              <div *ngIf="password.errors['required']">請輸入密碼</div>
+              <div *ngIf="password.errors['minlength']">
+                密碼長度有誤:
+                {{ password.errors['minlength']['actualLength'] }}
+                / {{ password.errors['minlength']['requiredLength'] }}
+              </div>
+            </div>
+
           </fieldset>
-          <button type="button" class="btn btn-lg btn-primary pull-xs-right" (click)="login()">
+          {{ form.value | json }}
+          <button type="button" class="btn btn-lg btn-primary pull-xs-right" (click)="login(form.value)" [disabled]="form.invalid">
             Sign in
           </button>
         </form>
