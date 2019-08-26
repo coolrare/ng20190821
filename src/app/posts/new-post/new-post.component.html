@@ -1,18 +1,30 @@
-
 <div class="editor-page">
   <div class="container page">
     <div class="row">
 
       <div class="col-md-10 col-md-offset-1 col-xs-12">
-        <form>
+        <form [formGroup]="form">
           <fieldset class="form-group">
-            <input class="form-control form-control-lg" type="text" placeholder="Post Title">
+            <input class="form-control form-control-lg" type="text" placeholder="Post Title" formControlName="title">
+          </fieldset>
+
+          <div *ngIf="form.get('title').invalid">
+            error:
+            <div *ngIf="form.get('title').errors['minlength']">
+              {{ form.get('title').errors['minlength'] | json }}
+            </div>
+          </div>
+
+          <fieldset class="form-group">
+            <textarea class="form-control" rows="8" placeholder="Write your post (in markdown)"
+              formControlName="body"></textarea>
           </fieldset>
           <fieldset class="form-group">
-            <textarea class="form-control" rows="8" placeholder="Write your post (in markdown)"></textarea>
-          </fieldset>
-          <fieldset class="form-group">
-            <input class="form-control" type="text" placeholder="Enter tags">
+
+            <input
+              *ngFor="let control of interest.controls; let index = index"
+              [formControlName]="index"
+            class="form-control" type="text" placeholder="Enter tags">
             <div class="tag-list">
               <span class="label label-pill label-default">
                 <i class="ion-close-round"></i> programming</span>
@@ -22,7 +34,9 @@
                 <i class="ion-close-round"></i> webdev</span>
             </div>
           </fieldset>
-          <button type="button" class="btn btn-lg btn-primary pull-xs-right" (click)="createPost()">
+          <button
+          [disabled]="form.invalid"
+          type="button" class="btn btn-lg btn-primary pull-xs-right" (click)="createPost()">
             Create Post
           </button>
         </form>

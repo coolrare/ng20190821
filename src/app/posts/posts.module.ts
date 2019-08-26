@@ -7,6 +7,7 @@ import { BannerComponent } from './banner/banner.component';
 import { TagsComponent } from './tags/tags.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { ArticlesComponent } from './articles/articles.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ArticlesComponent } from './articles/articles.component';
   ],
   imports: [
     CommonModule,
-    PostsRoutingModule
+    PostsRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class PostsModule { }
