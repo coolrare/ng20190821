@@ -21,19 +21,7 @@ export class LayoutComponent implements OnInit {
 
   list = ['A', 'B', 'C', 'D'];
 
-  topTitle = 'Test';
-  bottomTitle = 'Test2';
 
-  articles: Article[] = [
-    {
-      title: 'Test 1',
-      description: 'test 1'
-    },
-    {
-      title: 'Test 2',
-      description: 'test2'
-    }
-  ];
 
   page = '';
 
@@ -82,6 +70,6 @@ export class LayoutComponent implements OnInit {
 
   filterArticles(keyword: string) {
     console.log(keyword);
-    this.articles = this.articles.filter(item => item.title.indexOf(keyword) !== -1);
+    // this.articles = this.articles.filter(item => item.title.indexOf(keyword) !== -1);
   }
 }

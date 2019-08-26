@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoingComponent } from './loing/loing.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
+import { NewPostComponent } from './new-post/new-post.component';
+import { PostsComponent } from './posts/posts.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { LayoutComponent } from './layout/layout.component';
     NavComponent,
     LoingComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    NewPostComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
