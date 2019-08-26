@@ -12,6 +12,9 @@ import { TagsComponent } from './tags/tags.component';
 import { NavComponent } from './nav/nav.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { LoingComponent } from './loing/loing.component';
+import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { HttpClientModule } from '@angular/common/http';
     BannerComponent,
     ArticlesComponent,
     TagsComponent,
-    NavComponent
+    NavComponent,
+    LoingComponent,
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
