@@ -37,7 +37,7 @@ export class LayoutComponent implements OnInit {
     //   });
 
     this.articleApiService.getArticles().subscribe(data => {
-      this.articles = data.articles;
+      // this.articles = data.articles;
     });
   }
 

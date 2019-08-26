@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../article';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -20,9 +21,18 @@ export class PostsComponent implements OnInit {
       description: 'test2'
     }
   ];
-  constructor() { }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(paramMap => {
+      const keyword = paramMap.get('keyword');
+      console.log(keyword);
+    });
+
+    this.route.queryParamMap.subscribe(queryParamMap => {
+      console.log(queryParamMap.get('keyword'));
+    });
   }
 
 }
