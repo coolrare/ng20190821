@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../article';
 import { ActivatedRoute } from '@angular/router';
+import { map, switchMap } from 'rxjs/operators';
+import { ArticleApiService } from '../article-api.service';
 
 @Component({
   selector: 'app-posts',
@@ -22,17 +24,23 @@ export class PostsComponent implements OnInit {
     }
   ];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private articleService: ArticleApiService) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(paramMap => {
-      const keyword = paramMap.get('keyword');
-      console.log(keyword);
+    this.route.paramMap
+    .pipe(
+      map(paramMap => paramMap.get('keyword')),
+      switchMap(keyword => this.articleService.getArticles())
+    )
+    .subscribe(articles => {
+      // const keyword = paramMap.get('keyword');
+      // console.log(keyword);
+      console.log(articles);
     });
 
-    this.route.queryParamMap.subscribe(queryParamMap => {
-      console.log(queryParamMap.get('keyword'));
-    });
+    // this.route.queryParamMap.subscribe(queryParamMap => {
+    //   console.log(queryParamMap.get('keyword'));
+    // });
   }
 
 }

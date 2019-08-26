@@ -18,12 +18,14 @@ import { PostsComponent } from './posts/posts.component';
 import { PostsModule } from './posts/posts.module';
 import { AuthModule } from './auth/auth.module';
 import { LayoutModule } from './layout/layout.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MyLowerCasePipe,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

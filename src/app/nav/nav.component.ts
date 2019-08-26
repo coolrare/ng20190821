@@ -14,6 +14,8 @@ export class NavComponent implements OnInit {
 
   isNewPost = true;
 
+  isLogin = !!localStorage.getItem('userToken');
+
   constructor(private router: Router) {}
 
   ngOnInit() {
